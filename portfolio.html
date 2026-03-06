@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Moiz | Professional Web Designer</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 25s infinite alternate;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(-10%, -10%);
+            }
+
+            to {
+                transform: translate(20%, 20%);
+            }
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-indigo-500/30">
+    <!-- Background Blobs -->
+    <div class="blob top-0 left-0"></div>
+    <div class="blob bottom-0 right-0" style="animation-delay: -10s;"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/5 bg-slate-950/20">
+        <nav class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <h1 class="text-2xl font-bold flex items-center gap-2">
+                <i class="fa-brands fa-buysellads text-indigo-500 text-3xl"></i>
+                <span class="tracking-tight">Abdul Moiz</span>
+            </h1>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#HOME" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">HOME</a>
+                <a href="#ABOUT" class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">ABOUT</a>
+                <a href="#SERVICES"
+                    class="nav-link text-sm font-medium hover:text-indigo-400 transition-colors">SERVICES</a>
+                <a href="#CONTACT"
+                    class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-semibold transition-all shadow-lg shadow-indigo-500/20 active:scale-95">
+                    CONTACT ME
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle (simplified) -->
+            <button class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </nav>
+    </header>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="HOME" class="min-h-[90vh] flex items-center px-6 max-w-7xl mx-auto py-20">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-indigo-400 font-bold tracking-widest text-sm mb-4 uppercase">AVAILABLE FOR PROJECTS
+                    </h2>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                        Hi, I'm <span class="gradient-text">Abdul Moiz</span> <br>
+                        Digital Web Artist
+                    </h1>
+                    <p class="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                        Crafting high-performance, user-centric websites that transform complex ideas into elegant
+                        digital solutions. Expertise in modern frontend technologies and professional design.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#SERVICES"
+                            class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-bold transition-all shadow-xl shadow-indigo-600/20">
+                            Explore Services
+                        </a>
+                        <a href="#ABOUT"
+                            class="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold transition-all">
+                            About Me
+                        </a>
+                    </div>
+                </div>
+                <div class="relative reveal flex justify-center" style="transition-delay: 200ms;">
+                    <div class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full"></div>
+                    <img class="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-[3rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500"
+                        src="images.png" alt="Abdul Moiz Profile">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="ABOUT" class="py-32 px-6 bg-slate-900/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-20 items-center">
+                    <div class="reveal">
+                        <img class="w-full rounded-[2.5rem] shadow-2xl border border-white/5"
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop"
+                            alt="Digital Work">
+                    </div>
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <span class="text-indigo-500 font-bold mb-4 block uppercase tracking-wider">The Journey</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8">Professional Web Designer Based in Pakistan</h2>
+                        <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
+                            <p>
+                                I hold a <span class="text-white font-medium">Qualified Certificate as a Full Stack Web
+                                    Developer</span> from Digiarno Technical Institute. My journey in tech is driven by
+                                a passion for clean code and exceptional aesthetics.
+                            </p>
+                            <p>
+                                My core expertise lies in <span class="text-indigo-400">JavaScript</span> and <span
+                                    class="text-indigo-400">Python</span>. I leverage these tools to develop
+                                high-performance, responsive applications that look beautiful on any screen.
+                            </p>
+                            <p>
+                                Located in <span class="text-white font-medium">Islamabad, Pakistan</span>, I help
+                                businesses worldwide establish a strong digital presence through innovative web
+                                solutions.
+                            </p>
+                        </div>
+                        <div class="mt-10 flex gap-10">
+                            <div>
+                                <p class="text-3xl font-bold text-white mb-1">5+</p>
+                                <p class="text-slate-500 text-sm">Years Exp.</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-white mb-1">100+</p>
+                                <p class="text-slate-500 text-sm">Projects Done</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-white mb-1">Happy</p>
+                                <p class="text-slate-500 text-sm">Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="SERVICES" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-indigo-500 font-bold uppercase tracking-widest mb-4">What I Offer</h2>
+                <h3 class="text-4xl md:text-5xl font-bold italic">Premium Services</h3>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="glass-card p-10 rounded-[2rem] flex flex-col items-center text-center reveal">
+                    <div
+                        class="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6 text-indigo-400 text-3xl">
+                        <i class="fa-regular fa-address-card"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 italic">Portfolio Website</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        Stand out with a high-quality personal portfolio. I design unique digital identities that
+                        showcase your best work effectively.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-10 rounded-[2rem] flex flex-col items-center text-center reveal"
+                    style="transition-delay: 100ms;">
+                    <div
+                        class="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 text-teal-400 text-3xl">
+                        <i class="fa-solid fa-business-time"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 italic">Business Website</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        Scale your business with professional corporate sites. Reliable, fast, and optimized for your
+                        specific industry needs.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-10 rounded-[2rem] flex flex-col items-center text-center reveal"
+                    style="transition-delay: 200ms;">
+                    <div
+                        class="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6 text-indigo-400 text-3xl">
+                        <i class="fa-brands fa-edge-legacy"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 italic">E-Commerce</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        Launch your online store with a seamless shopping experience. Integrated payments and inventory
+                        management included.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-10 rounded-[2rem] flex flex-col items-center text-center reveal"
+                    style="transition-delay: 300ms;">
+                    <div
+                        class="w-16 h-16 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 text-teal-400 text-3xl">
+                        <i class="fa-brands fa-resolving"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 italic">Responsive Design</h4>
+                    <p class="text-slate-400 leading-relaxed">
+                        Every site I build is pixel-perfect and responsive, ensuring a beautiful experience on desktops,
+                        tablets, and phones.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="CONTACT" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-20">
+                    <div class="reveal">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 italic">Let's Connect</h2>
+                        <p class="text-slate-400 text-lg mb-12">
+                            Have a project in mind or just want to say hi? Contact me through any of the channels below.
+                            I'm always open to new opportunities.
+                        </p>
+
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-6 group">
+                                <div
+                                    class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 text-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest">Address</p>
+                                    <p class="text-white text-lg">Islamabad, Bharakhu, Jelani Town</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-6 group">
+                                <div
+                                    class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-400 text-2xl group-hover:bg-teal-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest">Phone</p>
+                                    <p class="text-white text-lg font-bold tracking-tighter">0358-128-5991</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-6 group">
+                                <div
+                                    class="w-14 h-14 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 text-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-500 text-sm uppercase font-bold tracking-widest">Email</p>
+                                    <p class="text-white text-lg">abdulmoiz@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <div class="glass-card p-10 rounded-[2.5rem] relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-6 opacity-10">
+                                <i class="fa-solid fa-paper-plane text-8xl -rotate-12"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-8 italic">Send a Message</h3>
+
+                            <form class="space-y-6">
+                                <div>
+                                    <label class="block text-slate-400 text-sm font-bold mb-2 ml-1">YOUR NAME</label>
+                                    <input type="text" placeholder="John Doe"
+                                        class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-600">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-400 text-sm font-bold mb-2 ml-1">YOUR EMAIL</label>
+                                    <input type="email" placeholder="john@example.com"
+                                        class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-600">
+                                </div>
+                                <div>
+                                    <label class="block text-slate-400 text-sm font-bold mb-2 ml-1">MESSAGE</label>
+                                    <textarea rows="4" placeholder="How can I help you?"
+                                        class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all placeholder:text-slate-600 resize-none"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold text-lg transition-all shadow-xl shadow-indigo-600/20 active:scale-[0.98]">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 border-t border-white/5 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-10 flex justify-center gap-6">
+                <a href="#" class="text-slate-400 hover:text-white text-2xl transition-colors"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white text-2xl transition-colors"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white text-2xl transition-colors"><i
+                        class="fa-brands fa-twitter"></i></a>
+            </div>
+            <p class="text-slate-500 font-medium">© 2025 Abdul Moiz. All Rights Reserved.</p>
+            <div class="mt-4 flex items-center justify-center gap-2">
+                <i class="fa-brands fa-buysellads text-indigo-500"></i>
+                <span class="text-slate-600 text-xs tracking-[0.2em] uppercase font-bold">Crafted with Excellence</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form submission prevention for demo
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message functionality would be connected here! For now, your design looks great.');
+        });
+    </script>
+</body>
+
+</html>
